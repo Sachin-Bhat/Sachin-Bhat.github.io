@@ -88,6 +88,16 @@ That yields the same numbers you see in the UI/CLI, making the mapping between f
 - Approx outputs: price $\approx 0.098$, delta $\approx 0.58$, gamma $\approx 1.78$, vega $\approx 0.43$ (theta/rho from the code above).
 - With a 1,000,000 notional, price is about $98{,}000$ and vega about $430{,}000$ (per vol point).
 
+### Spicy math derivation (note to self)
+- Start with risk-neutral GBM with carry: $dS_t = (r - q) S_t\,dt + \sigma S_t\,dW_t$.
+- Apply Ito to $V(S,t)$, delta-hedge with $\Delta = V_S$, enforce drift = $r$ to kill arbitrage → BS PDE:
+  $$V_t + \tfrac12 \sigma^2 S^2 V_{SS} + (r - q) S V_S - r V = 0.$$
+- Boundary conditions for a European call: $V(S,T)=\max(S-K,0)$, $V(0,t)=0$, $V\to S$ as $S\to\infty$.
+- Solve PDE / Feynman–Kac → closed-form:
+  $$C = S_0 e^{-qT}\Phi(d_1) - K e^{-rT}\Phi(d_2),$$
+  $$d_{1,2} = \frac{\ln(S_0/K) + (r - q \pm \tfrac12 \sigma^2)T}{\sigma \sqrt{T}}.$$
+- Put via put–call parity: $P = C - S_0 e^{-qT} + K e^{-rT}$.
+
 ## How vanilla European options work (cash-settled intuition)
 - Pay premium up front; at expiry, payoff depends only on terminal $S_T$.
 - No early exercise; continuous rates/discounting simplify to closed-form BS.
