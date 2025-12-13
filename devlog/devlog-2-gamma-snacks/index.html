@@ -238,6 +238,17 @@ Put via put-call parity: $P = C - S_0 e^{-qT} + K e^{-rT}$.</li>
 <li>Approx outputs: price $\approx 0.098$, delta $\approx 0.58$, gamma $\approx 1.78$, vega $\approx 0.43$ (theta/rho from the code above).</li>
 <li>With a 1,000,000 notional, price is about $98{,}000$ and vega about $430{,}000$ (per vol point).</li>
 </ul>
+<h3 id="spicy-math-derivation-note-to-self">Spicy math derivation (note to self)</h3>
+<ul>
+<li>Start with risk-neutral GBM with carry: $dS_t = (r - q) S_t,dt + \sigma S_t,dW_t$.</li>
+<li>Apply Ito to $V(S,t)$, delta-hedge with $\Delta = V_S$, enforce drift = $r$ to kill arbitrage → BS PDE:
+$$V_t + \tfrac12 \sigma^2 S^2 V_{SS} + (r - q) S V_S - r V = 0.$$</li>
+<li>Boundary conditions for a European call: $V(S,T)=\max(S-K,0)$, $V(0,t)=0$, $V\to S$ as $S\to\infty$.</li>
+<li>Solve PDE / Feynman–Kac → closed-form:
+$$C = S_0 e^{-qT}\Phi(d_1) - K e^{-rT}\Phi(d_2),$$
+$$d_{1,2} = \frac{\ln(S_0/K) + (r - q \pm \tfrac12 \sigma^2)T}{\sigma \sqrt{T}}.$$</li>
+<li>Put via put–call parity: $P = C - S_0 e^{-qT} + K e^{-rT}$.</li>
+</ul>
 <h2 id="how-vanilla-european-options-work-cash-settled-intuition">How vanilla European options work (cash-settled intuition)</h2>
 <ul>
 <li>Pay premium up front; at expiry, payoff depends only on terminal $S_T$.</li>
