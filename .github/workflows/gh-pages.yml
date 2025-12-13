@@ -15,6 +15,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Ensure theme is present
+        run: |
+          if [ ! -f themes/neovim-theme/theme.toml ]; then
+            echo "Theme missing; fetching from upstream..."
+            mkdir -p themes
+            git clone --depth 1 https://github.com/Super-Botman/neovim-theme.git themes/neovim-theme
+          else
+            echo "Theme found in repo."
+          fi
+
       - name: Install Zola
         run: |
           ZOLA_VERSION=0.19.2

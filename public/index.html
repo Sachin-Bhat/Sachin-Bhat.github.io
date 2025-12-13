@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sachin’s Notes</title>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"
+    integrity="sha256-WCzAhd2P6gRJF9Hv3oOOd+hFJi/QJbv+Azn4CGB8gfY=" crossorigin="anonymous" defer></script>
+  <script src="/js/index.js" defer></script>
+  <script src="/js/prompt.js" defer></script>
+  <script src="/js/keyboard.js" defer></script>
+  <script src="/js/tab.js" defer></script>
+  <script src="/js/commands.js" defer></script>
+  <script src="/js/config.js" defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <script defer>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (typeof renderMathInElement === "function") {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: "$$", right: "$$", display: true },
+            { left: "$", right: "$", display: false },
+          ],
+          throwOnError: false,
+        });
+      }
+    });
+  </script><link rel="stylesheet" href="/css/base.css"></head><body onkeydown='exec(event)' style='background-image: url("/assets/background.jpg");'><main>
+      <div class="files" id="files" tabindex="0">
+<ul>
+
+  <li class="file">
+    <span><a href='https://Sachin-Bhat.github.io/readme/'
+      tabindex="-2">  README</a></span>
+  </li>
+
+<li class="folder"><span>
+      
+      <a href='https://Sachin-Bhat.github.io/devlog/'
+        tabindex="-3">  Devlog
+      </a>
+    </span>
+
+    <ul>
+      
+      <li class="file">
+        <span>└──
+          <a href='https://Sachin-Bhat.github.io/devlog/devlog-1-hello-world/'
+            tabindex="-4">  Devlog #1: Hello World</a>
+        </span>
+      </li><li class="file">
+        <span>└──
+          <a href='https://Sachin-Bhat.github.io/devlog/devlog-2-gamma-snacks/'
+            tabindex="-5">  Devlog #2: Gamma Snacks at Midnight</a>
+        </span>
+      </li>
+        
+    </ul>
+  </li>
+</ul>
+</div>
+      <div class="viewer " id="viewer" tabindex="0">
+        <div class="tab">
+<div class="file-manager" onclick='document.getElementById("files").classList.toggle("open"); document.getElementById("content").classList.toggle("close")'> </div>
+<ul id="tabs">
+</ul>
+
+
+</div>
+        <div class="content" id="content"><h2 id="table-of-contents">Table of contents</h2>
+<ul>
+<li><a href="https://Sachin-Bhat.github.io/readme/#summary">Summary</a></li>
+<li><a href="https://Sachin-Bhat.github.io/readme/#work-highlights">Work highlights</a></li>
+<li><a href="https://Sachin-Bhat.github.io/readme/#tech-stack-interests">Tech stack &amp; interests</a></li>
+<li><a href="https://Sachin-Bhat.github.io/readme/#projects--builds">Projects &amp; builds</a></li>
+<li><a href="https://Sachin-Bhat.github.io/readme/#links">Links</a></li>
+</ul>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Sachin Bhat — AI/quant engineer; I like building fast, reliable tooling (pricing, agentic routers, TUIs) with operational guardrails.</li>
+<li>Experience across agent frameworks, orchestration layers, and production assistants with measurable latency/cost wins.</li>
+<li>Background: B.Sc. Data Science &amp; AI (NTU); roles at Tamira, Schaeffler, Dell.</li>
+</ul>
+<h2 id="work-highlights">Work highlights</h2>
+<ul>
+<li>Tamira (AI &amp; Data Engineer, Python/Rust): Rust agentic router (≈3× latency reduction), declarative recipe framework (40–60% token savings), role-aware TUIs with guardrails, automated recipe vulnerability scanner.</li>
+<li>Schaeffler (Innovation Engineer): bin-picking/pose-estimation (FoundationPose/BuildSDF), multimodal agents (Llama/Mistral) for task planning, “Iteration of Thought” architecture for behavior trees/code synthesis/video imitation.</li>
+<li>Dell (Gen-AI Scientist): async FastAPI orchestration, custom RAG fusion (hallucination ~0.3%), in-house IR replacing paid service (&gt; $1.5M/yr savings), multiple patent-pending frameworks.</li>
+</ul>
+<h2 id="tech-stack-interests">Tech stack &amp; interests</h2>
+<ul>
+<li>Python for quant/prototyping; Panel/Bokeh for quick interactive dashboards.</li>
+<li>Rust/Go for services when I need speed and safety.</li>
+<li>Data/infra: Postgres, Redis, httpx, uv; IaC and automation where it saves time.</li>
+<li>Frontends: fast static sites, minimal JS, purposeful theming (like this neovim vibe).</li>
+<li>Topics: option pricing, scenario/risk tooling, automation, reproducible research.</li>
+</ul>
+<h2 id="projects--builds">Projects &amp; builds</h2>
+<ul>
+<li>Trade Pricer Platform: EUR option pricer with scenario shocks, heatmaps, Panel UI; CLI + Python API (BSD-3-Clause).</li>
+<li>Agentic/router work: Rust-based agent router + orchestration; MCP terminal assistant with guarded shell tools.</li>
+<li>Research tooling: RAG chunking explorations (Tattva, Unarxiver), Neural Memory Retriever for long-context reasoning.</li>
+<li>Open source: window manager/tiling contributions (labwc, more coming soon...), utilities (cursor-acp, langchain-nmret, stela-mcp), plus assorted forks (bat/coreutils/paru/lemurs).</li>
+</ul>
+<h2 id="links">Links</h2>
+<ul>
+<li>GitHub: <a href="https://github.com/Sachin-Bhat">Sachin-Bhat</a></li>
+<li>GitLab : <a href="https://gitlab.com/Sachin-Bhat">Sachin-Bhat</a></li>
+<li>LinkedIn: <a href="https://www.linkedin.com/in/sbhat17/">Sachin Bhat, CQF</a></li>
+<li>Email: <a href="mailto:sachubhat17@gmail.com">here</a></li>
+<li>Devlog index: <a href="/devlog/">/devlog</a> — all updates in one place.</li>
+<li>Resume (PDF): <a href="/resume.pdf">/resume.pdf</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="prompt" id="terminal"><input
+    type="text"
+    id="setter"
+    onkeydown="writeit(this, event);moveIt(this.value.length, event)"
+    onchange="writeit(this, event)"
+    onkeyup="writeit(this, event)"
+    onkeypress="writeit(this, event);"
+    >
+<label for="setter" id="writer"> </label><b class="cursor" id="cursor"></b></div>
+    </main>
+  </body>
+
+</html>
