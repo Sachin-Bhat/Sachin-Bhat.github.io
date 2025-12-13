@@ -1,0 +1,25 @@
+{%- extends "base.html" -%} {%- block content -%} {%- if page.title -%}
+<h1>{{ page.title }}</h1>
+{%- endif -%} {%- if page.date -%}
+<p class="meta" style="color: #7dd3fc">
+    Dated: {{ page.date | date(format="%Y-%m-%d") }} — Location: Singapore (SG)
+</p>
+{%- endif -%} {%- if page.taxonomies.tags -%}
+<div class="meta" aria-label="tags">
+    {%- for tag in page.taxonomies.tags -%}
+    <span
+        style="
+            background: #1e293b;
+            color: #c7d2fe;
+            padding: 2px 8px;
+            margin-right: 6px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            display: inline-block;
+        "
+    >
+        {{ tag }}
+    </span>
+    {%- endfor -%}
+</div>
+{%- endif -%} {{ page.content | safe }} {%- endblock content -%}
