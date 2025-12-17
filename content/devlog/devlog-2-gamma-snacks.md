@@ -98,6 +98,12 @@ That yields the same numbers you see in the UI/CLI, making the mapping between f
   $$d_{1,2} = \frac{\ln(S_0/K) + (r - q \pm \tfrac12 \sigma^2)T}{\sigma \sqrt{T}}.$$
 - Put via put–call parity: $P = C - S_0 e^{-qT} + K e^{-rT}$.
 
+### Gamma and hedging flows (dealer dynamics)
+- Gamma measures how fast delta changes per unit move in spot. Large magnitude gamma means deltas swing quickly, forcing frequent hedge adjustments.
+- Dealers long gamma (e.g., long options) buy dips/sell rips when hedging, dampening moves; short gamma hedging does the opposite, amplifying moves.
+- Around big strikes/expiries, aggregate dealer gamma can pin spot (long gamma) or fuel breakouts (short gamma) as hedges are rebalanced.
+- Vol spikes often coincide with dealers flipping from long to short gamma; the hedging flow becomes pro-cyclical, reinforcing the underlying move.
+
 ## How vanilla European options work (cash-settled intuition)
 - Pay premium up front; at expiry, payoff depends only on terminal $S_T$.
 - No early exercise; continuous rates/discounting simplify to closed-form BS.
