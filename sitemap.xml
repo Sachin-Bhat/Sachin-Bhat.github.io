@@ -15,6 +15,10 @@
         <lastmod>2025-12-12</lastmod>
     </url>
     <url>
+        <loc>https://Sachin-Bhat.github.io/devlog/devlog-3-calendar-robots/</loc>
+        <lastmod>2025-12-17</lastmod>
+    </url>
+    <url>
         <loc>https://Sachin-Bhat.github.io/readme/</loc>
     </url>
     <url>
@@ -24,7 +28,13 @@
         <loc>https://Sachin-Bhat.github.io/tags/black-scholes/</loc>
     </url>
     <url>
+        <loc>https://Sachin-Bhat.github.io/tags/cli/</loc>
+    </url>
+    <url>
         <loc>https://Sachin-Bhat.github.io/tags/devlog/</loc>
+    </url>
+    <url>
+        <loc>https://Sachin-Bhat.github.io/tags/events/</loc>
     </url>
     <url>
         <loc>https://Sachin-Bhat.github.io/tags/greeks/</loc>
@@ -36,15 +46,24 @@
         <loc>https://Sachin-Bhat.github.io/tags/intro/</loc>
     </url>
     <url>
+        <loc>https://Sachin-Bhat.github.io/tags/macro/</loc>
+    </url>
+    <url>
         <loc>https://Sachin-Bhat.github.io/tags/options/</loc>
     </url>
     <url>
         <loc>https://Sachin-Bhat.github.io/tags/panel/</loc>
     </url>
     <url>
+        <loc>https://Sachin-Bhat.github.io/tags/polars/</loc>
+    </url>
+    <url>
         <loc>https://Sachin-Bhat.github.io/tags/pricing/</loc>
     </url>
     <url>
         <loc>https://Sachin-Bhat.github.io/tags/python/</loc>
+    </url>
+    <url>
+        <loc>https://Sachin-Bhat.github.io/tags/yfinance/</loc>
     </url>
 </urlset>

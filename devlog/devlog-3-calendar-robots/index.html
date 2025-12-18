@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sachin’s Notes</title>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"
+    integrity="sha256-WCzAhd2P6gRJF9Hv3oOOd+hFJi/QJbv+Azn4CGB8gfY=" crossorigin="anonymous" defer></script>
+  <script src="/js/index.js" defer></script>
+  <script src="/js/prompt.js" defer></script>
+  <script src="/js/keyboard.js" defer></script>
+  <script src="/js/tab.js" defer></script>
+  <script src="/js/commands.js" defer></script>
+  <script src="/js/config.js" defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <script defer>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (typeof renderMathInElement === "function") {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: "$$", right: "$$", display: true },
+            { left: "$", right: "$", display: false },
+          ],
+          throwOnError: false,
+        });
+      }
+    });
+  </script><link rel="stylesheet" href="/css/base.css"><link rel="stylesheet" href="/css/page.css"></head><body onkeydown='exec(event)' style='background-image: url("/assets/background.jpg");'><main>
+      <div class="files" id="files" tabindex="0">
+<ul>
+
+  <li class="file">
+    <span><a href='https://Sachin-Bhat.github.io/readme/'
+      tabindex="-2">  README</a></span>
+  </li>
+
+<li class="folder"><span>
+      
+      <a href='https://Sachin-Bhat.github.io/devlog/'
+        tabindex="-3">  Devlog
+      </a>
+    </span>
+
+    <ul>
+      
+      <li class="file">
+        <span>└──
+          <a href='https://Sachin-Bhat.github.io/devlog/devlog-1-hello-world/'
+            tabindex="-4">  Devlog #1: Hello World</a>
+        </span>
+      </li><li class="file">
+        <span>└──
+          <a href='https://Sachin-Bhat.github.io/devlog/devlog-2-gamma-snacks/'
+            tabindex="-5">  Devlog #2: Gamma Snacks at Midnight</a>
+        </span>
+      </li><li class="file">
+        <span>└──
+          <a class="selected"href='https://Sachin-Bhat.github.io/devlog/devlog-3-calendar-robots/'
+            tabindex="-6">  Devlog #3: Calendar Robots vs. Macro Shockwaves</a>
+        </span>
+      </li>
+        
+    </ul>
+  </li>
+</ul>
+</div>
+      <div class="viewer page" id="viewer" tabindex="0">
+        <div class="tab">
+<div class="file-manager" onclick='document.getElementById("files").classList.toggle("open"); document.getElementById("content").classList.toggle("close")'> </div>
+<ul id="tabs">
+</ul>
+
+
+</div>
+        <div class="content" id="content"><h1>Devlog #3: Calendar Robots vs. Macro Shockwaves</h1><p class="meta" style="color: #7dd3fc">
+    Dated: 2025-12-17 — Location: Singapore (SG)
+</p><div class="meta" aria-label="tags"><span
+        style="
+            background: #1e293b;
+            color: #c7d2fe;
+            padding: 2px 8px;
+            margin-right: 6px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            display: inline-block;
+        "
+    >
+        macro
+    </span><span
+        style="
+            background: #1e293b;
+            color: #c7d2fe;
+            padding: 2px 8px;
+            margin-right: 6px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            display: inline-block;
+        "
+    >
+        events
+    </span><span
+        style="
+            background: #1e293b;
+            color: #c7d2fe;
+            padding: 2px 8px;
+            margin-right: 6px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            display: inline-block;
+        "
+    >
+        yfinance
+    </span><span
+        style="
+            background: #1e293b;
+            color: #c7d2fe;
+            padding: 2px 8px;
+            margin-right: 6px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            display: inline-block;
+        "
+    >
+        polars
+    </span><span
+        style="
+            background: #1e293b;
+            color: #c7d2fe;
+            padding: 2px 8px;
+            margin-right: 6px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            display: inline-block;
+        "
+    >
+        cli
+    </span><span
+        style="
+            background: #1e293b;
+            color: #c7d2fe;
+            padding: 2px 8px;
+            margin-right: 6px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            display: inline-block;
+        "
+    >
+        python
+    </span><span
+        style="
+            background: #1e293b;
+            color: #c7d2fe;
+            padding: 2px 8px;
+            margin-right: 6px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            display: inline-block;
+        "
+    >
+        devlog
+    </span></div><p><strong>Catchy start:</strong> Spent the week teaching robots to read calendars (CPI/FOMC) without getting 403’d, so the desk can see who prices news fastest.</p>
+<h2 id="what-i-built-event-impact">What I built (event-impact)</h2>
+<ul>
+<li>FRED release ingester: <code>--events-fred-release-ids "cpi=9,fomc=10"</code> pulls real release dates (bounded by <code>--fred-start/--fred-end</code>) and stamps events at 08:30 ET by default.</li>
+<li>Extensible calendars: CSV/JSON (<code>--events-file</code>), ICS (local or URL with friendly UA), plus built-in CPI/FOMC/earnings for 2024–2025.</li>
+<li>Analytics: pre/post returns, realized vol deltas, post-event max drawdown, reaction time to peak move (minutes).</li>
+<li>CLI polish: logger instead of print spam, CSV export (<code>--output-csv</code> auto-creates folders), type-sound Polars/Yahoo fetches.</li>
+<li>Licensing: added BSD 3-Clause so others can fork/use freely.</li>
+</ul>
+<h2 id="how-to-run">How to run</h2>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">uv</span><span> run event-impact \
+</span><span style="color:#bf616a;">  --assets </span><span>&quot;</span><span style="color:#a3be8c;">SPY,QQQ,GLD,TLT,EURUSD=X,CL=F</span><span>&quot; \
+</span><span style="color:#bf616a;">  --interval</span><span> 1h \
+</span><span style="color:#bf616a;">  --categories </span><span>&quot;</span><span style="color:#a3be8c;">cpi,fomc</span><span>&quot; \
+</span><span style="color:#bf616a;">  --year</span><span> 2025 \
+</span><span style="color:#bf616a;">  --events-fred-release-ids </span><span>&quot;</span><span style="color:#a3be8c;">cpi=9,fomc=10</span><span>&quot; \
+</span><span style="color:#bf616a;">  --fred-start</span><span> 2025-01-01</span><span style="color:#bf616a;"> --fred-end</span><span> 2025-12-31 \
+</span><span style="color:#bf616a;">  --pre-hours</span><span> 24</span><span style="color:#bf616a;"> --post-hours</span><span> 24 \
+</span><span style="color:#bf616a;">  --output-csv</span><span> data/impacts_2025.csv
+</span></code></pre>
+<p><em>Set <code>FRED_API_KEY</code> in <code>.env</code> for the FRED path. ICS is optional; local files avoid BLS bot blocks.</em></p>
+<h2 id="what-worked-what-bit-me">What worked / what bit me</h2>
+<ul>
+<li><strong>Worked:</strong> FRED dates plus built-in calendars give a complete 2025 macro diary; reaction_minutes surfaces which asset spikes first.</li>
+<li><strong>Bit me:</strong> BLS ICS responds with “Access Denied” HTML; downloading via browser and pointing to the local <code>.ics</code> is the workaround. Intraday Yahoo history rejects very long ranges—added period fallbacks and local window filtering.</li>
+<li><strong>Type gremlins:</strong> yfinance-pl period types and Polars std/null handling needed explicit casting and NumPy std to keep linters happy.</li>
+</ul>
+<h2 id="event-types-what-they-mean">Event types &amp; what they mean</h2>
+<ul>
+<li><strong>CPI (inflation prints):</strong> Price levels; upside surprises usually push rates up, equities mixed, USD stronger. We stamp at 08:30 ET.</li>
+<li><strong>FOMC (policy statements):</strong> Policy rate + guidance; rates/FX react fastest, equities follow. Default 14:00 ET overrideable.</li>
+<li><strong>Earnings (single-name micro):</strong> Post-close or pre-open; impacts stock + sector ETFs.</li>
+<li><strong>FRED releases (generic):</strong> Any release id (e.g., Employment Situation, GDP, Retail Sales). We map each date to a timestamp and category label.</li>
+<li><strong>Custom ICS/CSV/JSON:</strong> Anything you import; category drives grouping and dedupe.</li>
+</ul>
+<h2 id="math-behind-the-metrics">Math behind the metrics</h2>
+<ul>
+<li><strong>Pre/Post returns:</strong> simple window returns (not annualized):
+$$
+r_{\text{pre}} = \frac{P_{\text{event}}}{P_{\text{pre start}}} - 1,\qquad
+r_{\text{post}} = \frac{P_{\text{post end}}}{P_{\text{event}}} - 1
+$$</li>
+<li><strong>Realized vol change:</strong> log returns $\ell_t = \ln!\frac{P_t}{P_{t-1}}$, $\sigma = \operatorname{std}(\ell_t)$, report $\Delta\sigma = \sigma_{\text{post}} - \sigma_{\text{pre}}$.</li>
+<li><strong>Reaction_minutes:</strong> peak absolute cumulative move after the event:
+$$
+c_t = \frac{P_t}{P_{\text{event}}} - 1,\quad
+t^* = \arg\max_t |c_t|,\quad
+\text{reaction} = \frac{t^* - t_{\text{event}}}{60\ \text{seconds}}
+$$
+Lower reaction time ⇒ faster pricing.</li>
+<li><strong>Dedupe logic:</strong> bucket by <code>(category, calendar date)</code>; prefer FRED-sourced rows when they overlap built-ins.</li>
+</ul>
+<h3 id="tiny-code-slice-metrics-core">Tiny code slice (metrics core)</h3>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">analyze_event</span><span>(</span><span style="color:#bf616a;">asset</span><span>, </span><span style="color:#bf616a;">df</span><span>, </span><span style="color:#bf616a;">event</span><span>, </span><span style="color:#bf616a;">window</span><span>):
+</span><span>    event_ts = event.</span><span style="color:#bf616a;">utc_timestamp</span><span>()
+</span><span>    pre_df = df.</span><span style="color:#bf616a;">filter</span><span>((pl.</span><span style="color:#bf616a;">col</span><span>(&quot;</span><span style="color:#a3be8c;">timestamp</span><span>&quot;) &gt;= event_ts - window.pre) &amp; (pl.</span><span style="color:#bf616a;">col</span><span>(&quot;</span><span style="color:#a3be8c;">timestamp</span><span>&quot;) &lt;= event_ts))
+</span><span>    post_df = df.</span><span style="color:#bf616a;">filter</span><span>((pl.</span><span style="color:#bf616a;">col</span><span>(&quot;</span><span style="color:#a3be8c;">timestamp</span><span>&quot;) &gt;= event_ts) &amp; (pl.</span><span style="color:#bf616a;">col</span><span>(&quot;</span><span style="color:#a3be8c;">timestamp</span><span>&quot;) &lt;= event_ts + window.post))
+</span><span>
+</span><span>    ref_price = </span><span style="color:#bf616a;">float</span><span>(pre_df.</span><span style="color:#bf616a;">select</span><span>(pl.</span><span style="color:#bf616a;">col</span><span>(&quot;</span><span style="color:#a3be8c;">close</span><span>&quot;).</span><span style="color:#bf616a;">last</span><span>()).</span><span style="color:#bf616a;">item</span><span>())
+</span><span>    first_price = </span><span style="color:#bf616a;">float</span><span>(pre_df.</span><span style="color:#bf616a;">select</span><span>(pl.</span><span style="color:#bf616a;">col</span><span>(&quot;</span><span style="color:#a3be8c;">close</span><span>&quot;).</span><span style="color:#bf616a;">first</span><span>()).</span><span style="color:#bf616a;">item</span><span>())
+</span><span>    last_price = </span><span style="color:#bf616a;">float</span><span>(post_df.</span><span style="color:#bf616a;">select</span><span>(pl.</span><span style="color:#bf616a;">col</span><span>(&quot;</span><span style="color:#a3be8c;">close</span><span>&quot;).</span><span style="color:#bf616a;">last</span><span>()).</span><span style="color:#bf616a;">item</span><span>())
+</span><span>
+</span><span>    pre_ret = ref_price / first_price - </span><span style="color:#d08770;">1
+</span><span>    post_ret = last_price / ref_price - </span><span style="color:#d08770;">1
+</span><span>
+</span><span>    pre_vol = pre_df.</span><span style="color:#bf616a;">select</span><span>(pl.</span><span style="color:#bf616a;">col</span><span>(&quot;</span><span style="color:#a3be8c;">close</span><span>&quot;).</span><span style="color:#bf616a;">log</span><span>().</span><span style="color:#bf616a;">diff</span><span>()).</span><span style="color:#bf616a;">to_series</span><span>().</span><span style="color:#bf616a;">drop_nulls</span><span>().</span><span style="color:#bf616a;">std</span><span>()
+</span><span>    post_vol = post_df.</span><span style="color:#bf616a;">select</span><span>(pl.</span><span style="color:#bf616a;">col</span><span>(&quot;</span><span style="color:#a3be8c;">close</span><span>&quot;).</span><span style="color:#bf616a;">log</span><span>().</span><span style="color:#bf616a;">diff</span><span>()).</span><span style="color:#bf616a;">to_series</span><span>().</span><span style="color:#bf616a;">drop_nulls</span><span>().</span><span style="color:#bf616a;">std</span><span>()
+</span><span>
+</span><span>    </span><span style="color:#65737e;"># reaction_minutes: find first max of |cum_ret|
+</span><span>    cum = (post_df[&quot;</span><span style="color:#a3be8c;">close</span><span>&quot;] / ref_price) - </span><span style="color:#d08770;">1
+</span><span>    idx = cum.</span><span style="color:#bf616a;">abs</span><span>().</span><span style="color:#bf616a;">arg_max</span><span>()
+</span><span>    reaction_minutes = ((post_df[&quot;</span><span style="color:#a3be8c;">timestamp</span><span>&quot;][idx] - event_ts).</span><span style="color:#bf616a;">total_seconds</span><span>()) / </span><span style="color:#d08770;">60
+</span><span>    </span><span style="color:#65737e;"># max drawdown from ref
+</span><span>    max_dd = ((post_df[&quot;</span><span style="color:#a3be8c;">close</span><span>&quot;] / ref_price) - </span><span style="color:#d08770;">1</span><span>).</span><span style="color:#bf616a;">cummax</span><span>().</span><span style="color:#bf616a;">combine</span><span>(
+</span><span>        (post_df[&quot;</span><span style="color:#a3be8c;">close</span><span>&quot;] / ref_price) - </span><span style="color:#d08770;">1</span><span>, </span><span style="color:#b48ead;">lambda </span><span style="color:#bf616a;">peak</span><span>, </span><span style="color:#bf616a;">cur</span><span>: cur - peak
+</span><span>    ).</span><span style="color:#bf616a;">min</span><span>()
+</span></code></pre>
+<h2 id="next-knobs-to-turn">Next knobs to turn</h2>
+<ul>
+<li>Bundle a small sample ICS/CSV in the repo for zero-network demos.</li>
+<li>Add support for multiple calendars (e.g., US, UK, EU).</li>
+<li>Implement a feature to allow users to customize the event types and their meanings.</li>
+</ul>
+<h3 id="interesting-tooling-and-the-whys">Interesting tooling and the whys</h3>
+<ul>
+<li><strong>Polars</strong>: Columnar, fast expressions, and friendly casting make windowed metrics and joins straightforward; avoiding pandas keeps memory/time in check on intraday pulls.</li>
+<li><strong>yfinance-pl</strong>: Native Polars frames from Yahoo Finance with interval control; faster than wrapping pandas and re-parsing.</li>
+<li><strong>httpx</strong>: Simple async-ready HTTP client for FRED/ICS; cleaner than <code>requests</code> and already in the stack.</li>
+<li><strong>uv</strong>: Lightweight project/run tool; keeps virtualenv and scripts tidy.</li>
+</ul>
+<h2 id="links">Links</h2>
+<ul>
+<li>Code: <a href="https://github.com/Sachin-Bhat/event-impact">event-impact</a> (BSD-3)</li>
+</ul>
+
+        </div>
+      </div>
+      <div class="prompt" id="terminal"><input
+    type="text"
+    id="setter"
+    onkeydown="writeit(this, event);moveIt(this.value.length, event)"
+    onchange="writeit(this, event)"
+    onkeyup="writeit(this, event)"
+    onkeypress="writeit(this, event);"
+    >
+<label for="setter" id="writer"> </label><b class="cursor" id="cursor"></b></div>
+    </main>
+  </body>
+
+</html>

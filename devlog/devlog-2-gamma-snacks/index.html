@@ -56,6 +56,11 @@
           <a class="selected"href='https://Sachin-Bhat.github.io/devlog/devlog-2-gamma-snacks/'
             tabindex="-5">  Devlog #2: Gamma Snacks at Midnight</a>
         </span>
+      </li><li class="file">
+        <span>└──
+          <a href='https://Sachin-Bhat.github.io/devlog/devlog-3-calendar-robots/'
+            tabindex="-6">  Devlog #3: Calendar Robots vs. Macro Shockwaves</a>
+        </span>
       </li>
         
     </ul>
@@ -248,6 +253,13 @@ $$V_t + \tfrac12 \sigma^2 S^2 V_{SS} + (r - q) S V_S - r V = 0.$$</li>
 $$C = S_0 e^{-qT}\Phi(d_1) - K e^{-rT}\Phi(d_2),$$
 $$d_{1,2} = \frac{\ln(S_0/K) + (r - q \pm \tfrac12 \sigma^2)T}{\sigma \sqrt{T}}.$$</li>
 <li>Put via put–call parity: $P = C - S_0 e^{-qT} + K e^{-rT}$.</li>
+</ul>
+<h3 id="gamma-and-hedging-flows-dealer-dynamics">Gamma and hedging flows (dealer dynamics)</h3>
+<ul>
+<li>Gamma measures how fast delta changes per unit move in spot. Large magnitude gamma means deltas swing quickly, forcing frequent hedge adjustments.</li>
+<li>Dealers long gamma (e.g., long options) buy dips/sell rips when hedging, dampening moves; short gamma hedging does the opposite, amplifying moves.</li>
+<li>Around big strikes/expiries, aggregate dealer gamma can pin spot (long gamma) or fuel breakouts (short gamma) as hedges are rebalanced.</li>
+<li>Vol spikes often coincide with dealers flipping from long to short gamma; the hedging flow becomes pro-cyclical, reinforcing the underlying move.</li>
 </ul>
 <h2 id="how-vanilla-european-options-work-cash-settled-intuition">How vanilla European options work (cash-settled intuition)</h2>
 <ul>
