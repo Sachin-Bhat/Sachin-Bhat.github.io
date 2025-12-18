@@ -1,4 +1,4 @@
-++ 
++++
 title = "Devlog #3: Calendar Robots vs. Macro Shockwaves"
 date = 2025-12-17
 description = "Building an event-impact engine: FRED-powered calendars, ICS/CSV ingestion, Polars analytics, and a CLI that ranks which markets price news fastest."
@@ -42,15 +42,20 @@ _Set `FRED_API_KEY` in `.env` for the FRED path. ICS is optional; local files av
 - **Custom ICS/CSV/JSON:** Anything you import; category drives grouping and dedupe.
 
 ## Math behind the metrics
-- **Pre/Post returns:** Simple return in each window (not annualized). Pre: $r_{\text{pre}} = \frac{P_{\text{event}}}{P_{\text{pre-start}}} - 1$. Post: $r_{\text{post}} = \frac{P_{\text{post-end}}}{P_{\text{event}}} - 1$.
-- **Realized vol change:** Log returns within the window: $\ell_t = \ln\frac{P_t}{P_{t-1}}$. Realized vol $\sigma = \operatorname{std}(\ell_t)$. Reported as $\Delta\sigma = \sigma_{\text{post}} - \sigma_{\text{pre}}$.
-- **Reaction_minutes:** Find the first peak of absolute cumulative return after the event:
+- **Pre/Post returns:** simple window returns (not annualized):
   $$
-    c_t = \frac{P_t}{P_{\text{event}}} - 1,\quad t^* = \arg\max_t |c_t|,\quad \text{reaction} = \frac{t^* - t_{\text{event}}}{60\text{ seconds}}
+  r_{\text{pre}} = \frac{P_{\text{event}}}{P_{\text{pre start}}} - 1,\qquad
+  r_{\text{post}} = \frac{P_{\text{post end}}}{P_{\text{event}}} - 1
+  $$
+- **Realized vol change:** log returns $\ell_t = \ln\!\frac{P_t}{P_{t-1}}$, $\sigma = \operatorname{std}(\ell_t)$, report $\Delta\sigma = \sigma_{\text{post}} - \sigma_{\text{pre}}$.
+- **Reaction_minutes:** peak absolute cumulative move after the event:
+  $$
+  c_t = \frac{P_t}{P_{\text{event}}} - 1,\quad
+  t^* = \arg\max_t |c_t|,\quad
+  \text{reaction} = \frac{t^* - t_{\text{event}}}{60\ \text{seconds}}
   $$
   Lower reaction time ⇒ faster pricing.
-- **Max drawdown post:** Drop from event reference: $\text{DD}_{\max} = \min_t \left(\frac{P_t}{P_{\text{event}}} - 1 - \max_{s \le t}\left(\frac{P_s}{P_{\text{event}}}-1\right)\right)$. Negative values show depth of pullback.
-- **Dedupe logic:** Bucket by `(category, calendar date)`; prefer FRED-sourced rows when they overlap built-ins.
+- **Dedupe logic:** bucket by `(category, calendar date)`; prefer FRED-sourced rows when they overlap built-ins.
 
 ### Tiny code slice (metrics core)
 ```python
